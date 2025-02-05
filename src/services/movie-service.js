@@ -47,7 +47,15 @@ export default {
         movies.splice(i,1);
       }
     }
+  },
 
-  }
+  //Update
+  update(movieId, movie){
+    for(let i =0; i < movies.length; i++){
+      if(movies[i].id === movieId){
+        movies[i] = movie;
+      }
+    }
+  },
   
 };
