@@ -7,7 +7,7 @@
     <h2>Price: {{price}}</h2>
     <p>Description: {{description}}</p>
     <a href="/movies/{{id}}/details" class="details">Details</a>
-    <a href="" class="delete" onclick="deleteMovie('{{id}}', this)">Delete</a>  {{!--Трябва да добавя функция за триене--}}
+    <a href="" class="delete" onclick="deleteMovie('{{id}}', this)">Delete</a>  
   </div>
 </div>
 
@@ -21,6 +21,7 @@
             method: "DELETE",  // Методът на заявката
           });
 
+          /*  Проверка
           const result = await response.json();  // Получаваме JSON отговора от сървъра
 
           if (result.success) {
@@ -30,9 +31,10 @@
           } else {
             alert("Грешка при изтриването!");
           }
+          */
         } catch (error) {
           console.error("Грешка при изтриването:", error);
-          alert("Грешка при свързването със сървъра!");
+  
         }
       }
     }

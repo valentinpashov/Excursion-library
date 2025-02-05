@@ -41,14 +41,13 @@ export default {
     return newId;
   },
 
-  /*delete(movieId){
-    let result = movies;
-    for(let i =0; i< movies.length; i++){
+  delete(movieId){
+    for(let i =0; i < movies.length; i++){
       if(movies[i].id === movieId){
         movies.splice(i,1);
       }
     }
 
   }
-    */
+  
 };
