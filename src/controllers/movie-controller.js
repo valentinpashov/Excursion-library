@@ -1,5 +1,6 @@
 import { Router } from "express";
 import movieService from "../services/movie-service.js";
+import movie from "../movie.js";
 
 const movieController = Router();
 
@@ -35,5 +36,14 @@ movieController.delete("/:movieId/delete", (req, res) => {
   res.redirect('/');
 });
 
+/*
+// Update
+movieController.put("/:movieId/update", (req, res) => {
+  const movieId = req.params.movieId; 
+  const movie = req.body;
+  movieService.update(movieId, movie);
+  res.redirect('/');
+});
+*/
 
 export default movieController;
