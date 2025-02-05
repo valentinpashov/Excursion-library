@@ -1,0 +1,41 @@
+<div class="flip flip-vertical">
+  <div class="front">
+    <img src="{{imageUrl}}" alt="{{place}}" />
+  </div>
+  <div class="back">
+    <h1>{{place}}</h1>
+    <h2>Price: {{price}}</h2>
+    <p>Description: {{description}}</p>
+    <a href="/movies/{{id}}/details" class="details">Details</a>
+    <a href="" class="delete" onclick="deleteMovie('{{id}}', this)">Delete</a>  {{!--Трябва да добавя функция за триене--}}
+  </div>
+</div>
+
+
+<script>
+    async function deleteMovie(movieId, element) {
+      if (confirm("Сигурни ли сте, че искате да изтриете този филм?")) {
+        try {
+          // Изпращаме DELETE заявка към сървъра
+          const response = await fetch(`/movies/${movieId}/delete`, {
+            method: "DELETE",  // Методът на заявката
+          });
+
+          const result = await response.json();  // Получаваме JSON отговора от сървъра
+
+          if (result.success) {
+            // Ако заявката е успешна, премахваме съответния елемент от DOM
+            element.closest('.flip.flip-vertical').remove();
+            alert(result.message);  // Показваме съобщение
+          } else {
+            alert("Грешка при изтриването!");
+          }
+        } catch (error) {
+          console.error("Грешка при изтриването:", error);
+          alert("Грешка при свързването със сървъра!");
+        }
+      }
+    }
+  </script>
+
+{{!--   <a href="/movies/{{id}}/details" class="delete" >Delete</a>   --}}
