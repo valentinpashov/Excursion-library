@@ -14,30 +14,25 @@
 
 <script>
     async function deleteMovie(movieId, element) {
-      if (confirm("Сигурни ли сте, че искате да изтриете този филм?")) {
+      if (confirm("Are you sure you want to delete this movie?")) {
         try {
-          // Изпращаме DELETE заявка към сървъра
           const response = await fetch(`/movies/${movieId}/delete`, {
-            method: "DELETE",  // Методът на заявката
+            method: "DELETE",
           });
-
           /*  Проверка
-          const result = await response.json();  // Получаваме JSON отговора от сървъра
+          const result = await response.json();  
 
           if (result.success) {
-            // Ако заявката е успешна, премахваме съответния елемент от DOM
             element.closest('.flip.flip-vertical').remove();
-            alert(result.message);  // Показваме съобщение
+            alert(result.message);
           } else {
-            alert("Грешка при изтриването!");
+            alert("Error while deleting:");
           }
           */
         } catch (error) {
-          console.error("Грешка при изтриването:", error);
+          console.error("Error while deleting:", error);
   
         }
       }
     }
   </script>
-
-{{!--   <a href="/movies/{{id}}/details" class="delete" >Delete</a>   --}}
