@@ -14,3 +14,8 @@ Backend: JavaScript/Node.js//Express.js/JSON
 
 Frontend: HTMl/CSS
 
+
+git clone https://github.com/valentinpashov/Excursion-library.git
+cd my-js-project
+npm install
+
